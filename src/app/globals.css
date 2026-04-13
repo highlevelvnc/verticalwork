@@ -1,26 +1,331 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   DESIGN TOKENS — THE STRUCTURAL MONOLITH
+   PC Work Vertical — Industrial Cinematicism
+   ============================================================ */
+
+@theme {
+  /* --- Surface Scale (darkest → most elevated) --- */
+  --color-background: #0C0C0D;
+  --color-surface-1: #141416;
+  --color-surface-2: #1A1A1C;
+  --color-surface-3: #242426;
+  --color-surface-4: #2E2E30;
+
+  /* --- Brand Accent --- */
+  --color-orange: #F2994A;
+  --color-orange-soft: #FFBB84;
+  --color-electric: #5AD9F4;
+
+  /* --- Content --- */
+  --color-content: #E8E5E6;
+  --color-content-muted: #9A918B;
+
+  /* --- Border Radius: 0px everywhere (The Monolith Rule) --- */
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 0px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --- Typography: reference next/font CSS variables --- */
+  --font-headline: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   BASE RESET & GLOBAL STYLES
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+  /* Lenis manages scroll — do not use scroll-behavior: smooth here */
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0C0C0D;
+  color: #E8E5E6;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Lenis integration */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: #F2994A;
+  color: #0C0C0D;
+}
+
+/* ============================================================
+   TYPOGRAPHY SCALE
+   ============================================================ */
+
+/* Hero display — used for main headlines */
+.type-display {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Section title */
+.type-title {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+/* Card heading */
+.type-heading {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* Section label (above titles) */
+.type-label {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Body text */
+.type-body {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* Technical spec / caption */
+.type-spec {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Stat number */
+.type-stat {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Decorative oversized ghost text */
+.type-ghost {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.035);
+  user-select: none;
+  pointer-events: none;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+/* Site container with generous padding */
+.container-site {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+@media (max-width: 1280px) {
+  .container-site {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container-site {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-site {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* ============================================================
+   COMPONENT UTILITIES
+   ============================================================ */
+
+/* Glassmorphism — used for nav and project overlays */
+.glass {
+  background: rgba(14, 14, 15, 0.72);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+}
+
+/* Ghost border — barely visible boundary */
+.border-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Orange CTA gradient — polished steel sheen */
+.bg-cta-gradient {
+  background: linear-gradient(135deg, #F2994A 0%, #FFBB84 100%);
+}
+
+/* Architectural grid overlay — used in hero placeholder */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Section separator line */
+.section-line {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Image grayscale → color on hover */
+.img-grayscale {
+  filter: grayscale(100%);
+  transition: filter 0.7s ease;
+  will-change: filter;
+}
+
+.group:hover .img-grayscale {
+  filter: grayscale(0%);
+}
+
+/* ============================================================
+   INTERACTIVE STATES & ACCESSIBILITY
+   ============================================================ */
+
+/* Keyboard focus ring — only visible during keyboard navigation */
+:focus-visible {
+  outline: 2px solid rgba(242, 153, 74, 0.65);
+  outline-offset: 3px;
+}
+
+/* Form elements use border-based focus; suppress the ring */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+/* Autofill — neutralise browser yellow for dark theme */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #E8E5E6;
+  -webkit-box-shadow: 0 0 0px 1000px #0C0C0D inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Select option colours for browsers that respect them */
+select option {
+  background-color: #1A1A1C;
+  color: #E8E5E6;
+}
+
+/* Skip-to-content — slides in on focus for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: #F2994A;
+  color: #0C0C0D;
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ============================================================
+   SCROLLBAR — thin branded track
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0C0D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E2E30;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F2994A;
 }
