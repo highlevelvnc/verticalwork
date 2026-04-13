@@ -5,8 +5,6 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { processSteps } from '@/lib/brand'
-import SectionLabel from '@/components/ui/SectionLabel'
-import SectionTitle from '@/components/ui/SectionTitle'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -33,48 +31,55 @@ export default function Process() {
       )
 
       gsap.from('.process-step', {
-        opacity: 0, y: 44, duration: 0.75, ease: 'power3.out', stagger: 0.14,
-        scrollTrigger: { trigger: '.process-steps', start: 'top 72%' },
+        opacity: 0, y: 40, duration: 0.75, ease: 'power3.out', stagger: 0.14,
+        scrollTrigger: { trigger: '.process-steps', start: 'top 75%' },
       })
     },
     { scope: sectionRef },
   )
 
   return (
-    <section ref={sectionRef} id="processo" className="py-28 lg:py-36 bg-surface-2">
+    <section ref={sectionRef} id="processo" className="py-32 bg-background">
       <div className="container-site">
 
-        <div className="process-header text-center mb-16">
-          <SectionLabel color="electric">Metodologia</SectionLabel>
-          <SectionTitle>O Nosso Processo.</SectionTitle>
+        {/* Header — centered, mb-24 matching Stitch */}
+        <div className="process-header text-center mb-24">
+          <span className="text-orange font-body text-sm tracking-[0.2em] uppercase mb-4 block">
+            Metodologia
+          </span>
+          <h2 className="font-headline font-black text-4xl lg:text-5xl uppercase tracking-tighter">
+            O Nosso Processo
+          </h2>
         </div>
 
-        <div className="process-steps relative grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12">
-          <div className="process-line hidden md:block absolute top-10 left-[10%] right-[10%] h-px bg-orange/30 z-0" aria-hidden />
-          <div className="hidden md:block absolute top-10 left-[10%] right-[10%] h-px bg-white/5 z-[-1]" aria-hidden />
+        {/* Steps — gap-12, relative for line */}
+        <div className="process-steps relative grid grid-cols-1 md:grid-cols-4 gap-12">
+          {/* Connecting line */}
+          <div className="process-line hidden md:block absolute top-10 left-0 w-full h-px bg-white/10 z-0" aria-hidden />
 
           {processSteps.map((step, i) => {
             const isLast = i === lastIndex
             return (
-              <div key={step.number} className="process-step relative z-10 flex flex-col gap-5">
+              <div key={step.number} className="process-step relative z-10">
+                {/* Number block — w-20 h-20, mb-8 matching Stitch */}
                 <div
                   className={[
-                    'w-18 h-18 lg:w-20 lg:h-20 flex items-center justify-center',
-                    'font-headline font-black text-xl lg:text-2xl border',
+                    'w-20 h-20 mb-8 flex items-center justify-center',
+                    'font-headline text-3xl font-black border',
                     isLast
-                      ? 'bg-orange text-background border-orange'
-                      : 'bg-surface-3 text-orange border-orange/30',
+                      ? 'bg-orange border-orange text-background'
+                      : 'bg-surface-4 border-orange/30 text-orange',
                   ].join(' ')}
                 >
                   {step.number}
                 </div>
 
-                <div>
-                  <h4 className="type-heading text-content mb-2">{step.title}</h4>
-                  <p className="text-content-muted leading-relaxed text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
-                    {step.description}
-                  </p>
-                </div>
+                <h4 className="text-content font-headline font-bold text-xl uppercase mb-4">
+                  {step.title}
+                </h4>
+                <p className="text-content-muted text-sm leading-relaxed" style={{ fontFamily: 'var(--font-inter)' }}>
+                  {step.description}
+                </p>
               </div>
             )
           })}

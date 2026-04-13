@@ -5,8 +5,6 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { services } from '@/lib/brand'
-import SectionLabel from '@/components/ui/SectionLabel'
-import SectionTitle from '@/components/ui/SectionTitle'
 import ServiceCard from '@/components/ui/ServiceCard'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -21,36 +19,33 @@ export default function Services() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
       gsap.from('.services-header', {
-        opacity: 0,
-        y: 32,
-        duration: 0.9,
-        ease: 'power3.out',
+        opacity: 0, y: 32, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: '.services-header', start: 'top 85%' },
       })
 
       gsap.from('.service-card', {
-        opacity: 0,
-        y: 56,
-        duration: 0.85,
-        ease: 'power3.out',
-        stagger: 0.13,
-        scrollTrigger: { trigger: '.service-card', start: 'top 80%' },
+        opacity: 0, y: 50, duration: 0.85, ease: 'power3.out', stagger: 0.13,
+        scrollTrigger: { trigger: '.service-card', start: 'top 85%' },
       })
     },
     { scope: sectionRef },
   )
 
   return (
-    <section ref={sectionRef} id="servicos" className="py-32 lg:py-40 bg-background">
-      <div className="container-site mb-16">
+    <section ref={sectionRef} id="servicos" className="py-32 bg-background">
+      <div className="container-site mb-20">
         <div className="services-header">
-          <SectionLabel>Serviços</SectionLabel>
-          <SectionTitle>Engenharia de Fachadas.</SectionTitle>
+          <span className="text-orange font-body text-sm tracking-[0.2em] uppercase mb-4 block">
+            Nossos Serviços
+          </span>
+          <h2 className="font-headline font-black text-4xl lg:text-5xl uppercase tracking-tighter">
+            Engenharia de Fachadas
+          </h2>
         </div>
       </div>
 
       <div className="container-site">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           {services.map((service, i) => (
             <ServiceCard
               key={service.id}
@@ -61,7 +56,7 @@ export default function Services() {
               specs={service.specs}
               image={service.image}
               variant={cardVariants[i]}
-              className="service-card"
+              className="service-card border-r border-white/5 last:border-r-0"
             />
           ))}
         </div>

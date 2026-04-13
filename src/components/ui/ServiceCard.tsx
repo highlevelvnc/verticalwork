@@ -29,56 +29,34 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div className={`group relative overflow-hidden flex flex-col ${variantBg[variant]} ${className}`}>
-      {/* Image area — responsive aspect ratio */}
-      <div className="aspect-[4/3] overflow-hidden relative">
+      {/* Image — h-80 matching Stitch reference */}
+      <div className="h-80 overflow-hidden relative">
         {image ? (
-          <>
-            <Image
-              src={image}
-              alt={title}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-          </>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+          />
         ) : (
           <>
             <div className="absolute inset-0 bg-gradient-to-br from-surface-2 to-background" />
             <div className="absolute inset-0 grid-overlay opacity-60" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="type-spec text-white/8">[IMAGEM DO SERVIÇO]</span>
-            </div>
           </>
         )}
-        {/* Warm wash on hover */}
-        <div className="absolute inset-0 bg-orange/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </div>
 
-      {/* Content */}
-      <div className="p-8 lg:p-10 flex flex-col flex-1 gap-4">
-        <span className="type-spec text-electric">
+      {/* Content — p-10 matching Stitch */}
+      <div className="p-10 flex flex-col flex-1">
+        <span className="text-electric font-body text-sm font-bold mb-4 block">
           {number} / {tag}
         </span>
-        <h3 className="type-heading text-content">{title}</h3>
-        <p className="text-content-muted leading-relaxed text-sm flex-1" style={{ fontFamily: 'var(--font-inter)' }}>
+        <h3 className="font-headline font-bold text-2xl text-content uppercase mb-6">{title}</h3>
+        <p className="text-content-muted leading-relaxed mb-8 flex-1" style={{ fontFamily: 'var(--font-inter)' }}>
           {description}
         </p>
-
-        {/* Technical specs tags */}
-        <div className="flex flex-wrap gap-2 pt-2">
-          {specs.map((spec) => (
-            <span
-              key={spec}
-              className="type-spec text-white/25 border border-white/8 px-3 py-1"
-            >
-              {spec}
-            </span>
-          ))}
-        </div>
-
-        {/* Arrow CTA */}
-        <div className="flex items-center gap-2 text-orange type-spec cursor-pointer group-hover:gap-4 transition-all duration-300 mt-auto pt-5 border-t border-white/5">
+        <div className="flex items-center gap-2 text-orange font-body text-xs tracking-widest uppercase font-bold cursor-pointer group-hover:gap-4 transition-all duration-300">
           Especificações Técnicas
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
             <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
