@@ -217,9 +217,9 @@ html.lenis body {
 
 /* Glassmorphism — used for nav and project overlays */
 .glass {
-  background: rgba(14, 14, 15, 0.72);
-  backdrop-filter: blur(24px) saturate(1.4);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  background: rgba(14, 14, 15, 0.88);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
 }
 
 /* Ghost border — barely visible boundary */

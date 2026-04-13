@@ -48,7 +48,7 @@ export const services = [
     description:
       'Especialistas em sistemas térmicos e acústicos de alta performance (ETICS/Cappotto), garantindo eficiência energética e durabilidade estrutural de longa duração.',
     specs: ['ETICS', 'Cappotto', 'Isolamento Térmico', 'Isolamento Acústico'],
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f7?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'remodelacao',
@@ -68,7 +68,7 @@ export const services = [
     description:
       'Restauração estética e funcional de edifícios degradados, utilizando materiais de última geração para preservação patrimonial e reforço estrutural certificado.',
     specs: ['Reabilitação Estrutural', 'Preservação Patrimonial', 'Materiais Certificados'],
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?auto=format&fit=crop&w=800&q=80',
   },
 ]
 
