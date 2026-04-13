@@ -25,6 +25,12 @@ export const brand = {
   whatsapp: '351966416696',
 }
 
+// PLACEHOLDER: Substituir por fotografias reais. URLs actuais são Unsplash (stock).
+export const images = {
+  hero: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80',
+  about: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80',
+}
+
 export const stats = [
   { value: '10', suffix: 'anos', label: 'de Experiência' },
   // PLACEHOLDER: Confirmar número real de projetos
@@ -42,6 +48,7 @@ export const services = [
     description:
       'Especialistas em sistemas térmicos e acústicos de alta performance (ETICS/Cappotto), garantindo eficiência energética e durabilidade estrutural de longa duração.',
     specs: ['ETICS', 'Cappotto', 'Isolamento Térmico', 'Isolamento Acústico'],
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f7?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'remodelacao',
@@ -51,6 +58,7 @@ export const services = [
     description:
       'Transformação de espaços com acabamentos premium. Design contemporâneo e execução técnica rigorosa para projetos residenciais e comerciais de exigência elevada.',
     specs: ['Acabamentos Premium', 'Design Contemporâneo', 'Execução Técnica Rigorosa'],
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'reabilitacao',
@@ -60,6 +68,7 @@ export const services = [
     description:
       'Restauração estética e funcional de edifícios degradados, utilizando materiais de última geração para preservação patrimonial e reforço estrutural certificado.',
     specs: ['Reabilitação Estrutural', 'Preservação Patrimonial', 'Materiais Certificados'],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80',
   },
 ]
 
@@ -105,6 +114,7 @@ export const projects = [
     category: 'Reabilitação Total',
     featured: true,
     location: 'Amadora',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 2,
@@ -112,6 +122,7 @@ export const projects = [
     category: 'Isolamento de Fachada',
     featured: false,
     location: 'Lisboa',
+    image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 3,
@@ -119,6 +130,7 @@ export const projects = [
     category: 'Remodelação',
     featured: false,
     location: 'Amadora',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 4,
@@ -126,6 +138,7 @@ export const projects = [
     category: 'Reabilitação Estrutural',
     featured: false,
     location: 'Alfragide',
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80',
   },
 ]
 

@@ -25,10 +25,7 @@ export default function Services() {
         y: 32,
         duration: 0.9,
         ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.services-header',
-          start: 'top 85%',
-        },
+        scrollTrigger: { trigger: '.services-header', start: 'top 85%' },
       })
 
       gsap.from('.service-card', {
@@ -37,18 +34,15 @@ export default function Services() {
         duration: 0.85,
         ease: 'power3.out',
         stagger: 0.13,
-        scrollTrigger: {
-          trigger: '.service-card',
-          start: 'top 80%',
-        },
+        scrollTrigger: { trigger: '.service-card', start: 'top 80%' },
       })
     },
     { scope: sectionRef },
   )
 
   return (
-    <section ref={sectionRef} id="servicos" className="py-40 bg-background">
-      <div className="container-site mb-20">
+    <section ref={sectionRef} id="servicos" className="py-28 lg:py-36 bg-background">
+      <div className="container-site mb-14">
         <div className="services-header">
           <SectionLabel>Serviços</SectionLabel>
           <SectionTitle>Engenharia de Fachadas.</SectionTitle>
@@ -65,6 +59,7 @@ export default function Services() {
               title={service.title}
               description={service.description}
               specs={service.specs}
+              image={service.image}
               variant={cardVariants[i]}
               className="service-card"
             />

@@ -1,6 +1,9 @@
+import Image from 'next/image'
+
 interface ProjectCardProps {
   title: string
   category: string
+  image?: string
   featured?: boolean
   className?: string
 }
@@ -8,23 +11,35 @@ interface ProjectCardProps {
 export default function ProjectCard({
   title,
   category,
+  image,
   featured = false,
   className = '',
 }: ProjectCardProps) {
   return (
     <div className={`group relative overflow-hidden ${className}`}>
-      {/* Image — PLACEHOLDER: substituir por Next.js Image com foto real do projeto */}
-      {/* Scales subtly on hover, creating depth */}
+      {/* Background image — scales on hover */}
       <div className="absolute inset-0 transition-transform duration-700 will-change-transform group-hover:scale-[1.04]">
-        <div className="absolute inset-0 bg-gradient-to-br from-surface-3 to-surface-1" />
-        <div className="absolute inset-0 grid-overlay opacity-40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="type-spec text-white/6">[IMAGEM DO PROJETO]</span>
-        </div>
+        {image ? (
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes={featured ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 100vw, 25vw'}
+            className="object-cover"
+          />
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-br from-surface-3 to-surface-1" />
+            <div className="absolute inset-0 grid-overlay opacity-40" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="type-spec text-white/6">[IMAGEM DO PROJETO]</span>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
 
       {/* Warm orange wash on hover */}
       <div className="absolute inset-0 bg-orange/[0.07] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
