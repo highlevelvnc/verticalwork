@@ -34,11 +34,11 @@ export default function CredibilityBar() {
   )
 
   return (
-    <section ref={sectionRef} className="bg-surface-1 border-y border-white/5 py-8 lg:py-10">
+    <section ref={sectionRef} className="bg-surface-1 border-y border-white/5 py-14 lg:py-20">
       <div className="container-site">
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/5">
 
-          <div className="flex flex-col gap-2 py-8 md:py-0 md:px-10 md:first:pl-0">
+          <div className="flex flex-col gap-2 py-10 md:py-0 md:px-14 md:first:pl-0">
             <span className="type-spec text-electric">Anos de Experiência</span>
             <div className="flex items-baseline gap-1.5">
               <span data-count="10" className="font-headline font-black text-5xl text-content leading-none tabular-nums">10</span>
@@ -47,7 +47,7 @@ export default function CredibilityBar() {
             <span className="type-spec text-content-muted/40">No mercado português</span>
           </div>
 
-          <div className="flex flex-col gap-2 py-8 md:py-0 md:px-10">
+          <div className="flex flex-col gap-2 py-10 md:py-0 md:px-14">
             <span className="type-spec text-electric">Projetos Realizados</span>
             <div className="flex items-baseline gap-1.5">
               <span data-count="500" className="font-headline font-black text-5xl text-content leading-none tabular-nums">500</span>
@@ -56,7 +56,7 @@ export default function CredibilityBar() {
             <span className="type-spec text-content-muted/40">Concluídos com sucesso</span>
           </div>
 
-          <div className="flex flex-col gap-2 py-8 md:py-0 md:px-10">
+          <div className="flex flex-col gap-2 py-10 md:py-0 md:px-14">
             <span className="type-spec text-electric">Fundada em</span>
             <div className="flex items-baseline gap-1.5">
               <span className="font-headline font-black text-5xl text-content/20 leading-none tabular-nums">2014</span>

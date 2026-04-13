@@ -38,9 +38,9 @@ export default function Contact() {
   }
 
   return (
-    <section ref={sectionRef} id="contacto" className="py-28 lg:py-36 bg-background">
+    <section ref={sectionRef} id="contacto" className="py-32 lg:py-40 bg-background">
       <div className="container-site">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 xl:gap-24">
 
           <div className="contact-info lg:col-span-1">
             <SectionLabel>Contacto</SectionLabel>

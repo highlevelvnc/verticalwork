@@ -53,9 +53,9 @@ export default function About() {
   )
 
   return (
-    <section ref={sectionRef} className="py-28 lg:py-36 bg-surface-1 overflow-hidden">
+    <section ref={sectionRef} className="py-32 lg:py-40 bg-surface-1 overflow-hidden">
       <div className="container-site">
-        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-12 xl:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-14 xl:gap-24 items-center">
 
           {/* Text column */}
           <div>
@@ -63,14 +63,14 @@ export default function About() {
               <SectionLabel>A Nossa Empresa</SectionLabel>
             </div>
 
-            <h2 className="type-title text-content mb-10 leading-none">
+            <h2 className="type-title text-content mb-12 leading-none">
               <span className="about-line block">A ARTE DO</span>
               <span className="about-line block text-white/20">TRABALHO</span>
               <span className="about-line block text-white/20">VERTICAL.</span>
             </h2>
 
             <div
-              className="space-y-5 text-content-muted max-w-lg mb-14"
+              className="space-y-6 text-content-muted max-w-lg mb-16"
               style={{ fontFamily: 'var(--font-inter)', fontSize: '1.0625rem', lineHeight: '1.7' }}
             >
               <p className="about-body">
@@ -84,7 +84,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-10 pt-10 border-t border-white/5">
+            <div className="grid grid-cols-2 gap-12 pt-12 border-t border-white/5">
               <div className="about-stat">
                 <StatBlock value="100" suffix="%" label="Segurança Garantida" />
               </div>

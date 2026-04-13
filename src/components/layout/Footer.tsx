@@ -15,7 +15,7 @@ export default function Footer() {
 
       {/* Editorial closing statement */}
       <div className="border-b border-white/[0.04] overflow-hidden">
-        <div className="container-site py-10 lg:py-12">
+        <div className="container-site py-16 lg:py-24">
           <div className="flex items-center gap-6 mb-5">
             <span className="shrink-0 w-10 h-px bg-orange/50" aria-hidden />
             <span className="type-spec text-electric">Engenharia de Precisão Aplicada à Vertical</span>
@@ -30,8 +30,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-site py-12 lg:py-16">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 mb-12">
+      <div className="container-site py-16 lg:py-20">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
 
           <div className="flex flex-col gap-4 max-w-xs">
             <div className="font-headline font-black text-xl text-content uppercase tracking-tight">

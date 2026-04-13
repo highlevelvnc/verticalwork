@@ -33,10 +33,10 @@ export default function Portfolio() {
   )
 
   return (
-    <section ref={sectionRef} id="projetos" className="py-28 lg:py-36 bg-background overflow-hidden">
+    <section ref={sectionRef} id="projetos" className="py-32 lg:py-40 bg-background overflow-hidden">
       <div className="container-site">
 
-        <div className="portfolio-header flex justify-between items-end mb-14">
+        <div className="portfolio-header flex justify-between items-end mb-16">
           <div>
             <SectionLabel>Portfólio</SectionLabel>
             <SectionTitle>Obra Feita.</SectionTitle>
@@ -48,8 +48,8 @@ export default function Portfolio() {
 
         {/* Project grid — asymmetric with more breathing room */}
         <div
-          className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-3"
-          style={{ height: 'clamp(480px, 65vw, 750px)' }}
+          className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-[5px]"
+          style={{ height: 'clamp(500px, 68vw, 800px)' }}
         >
           <ProjectCard
             title={featured.title}

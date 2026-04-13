@@ -41,7 +41,7 @@ export default function Process() {
   )
 
   return (
-    <section ref={sectionRef} id="processo" className="py-24 lg:py-32 bg-surface-2">
+    <section ref={sectionRef} id="processo" className="py-28 lg:py-36 bg-surface-2">
       <div className="container-site">
 
         <div className="process-header text-center mb-16">

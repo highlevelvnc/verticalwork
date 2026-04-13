@@ -41,8 +41,8 @@ export default function Services() {
   )
 
   return (
-    <section ref={sectionRef} id="servicos" className="py-28 lg:py-36 bg-background">
-      <div className="container-site mb-14">
+    <section ref={sectionRef} id="servicos" className="py-32 lg:py-40 bg-background">
+      <div className="container-site mb-16">
         <div className="services-header">
           <SectionLabel>Serviços</SectionLabel>
           <SectionTitle>Engenharia de Fachadas.</SectionTitle>

@@ -30,7 +30,7 @@ export default function ServiceCard({
   return (
     <div className={`group relative overflow-hidden flex flex-col ${variantBg[variant]} ${className}`}>
       {/* Image area — responsive aspect ratio */}
-      <div className="aspect-[16/10] overflow-hidden relative">
+      <div className="aspect-[4/3] overflow-hidden relative">
         {image ? (
           <>
             <Image
@@ -56,7 +56,7 @@ export default function ServiceCard({
       </div>
 
       {/* Content */}
-      <div className="p-7 lg:p-8 flex flex-col flex-1 gap-3">
+      <div className="p-8 lg:p-10 flex flex-col flex-1 gap-4">
         <span className="type-spec text-electric">
           {number} / {tag}
         </span>
@@ -78,7 +78,7 @@ export default function ServiceCard({
         </div>
 
         {/* Arrow CTA */}
-        <div className="flex items-center gap-2 text-orange type-spec cursor-pointer group-hover:gap-4 transition-all duration-300 mt-2 pt-4 border-t border-white/5">
+        <div className="flex items-center gap-2 text-orange type-spec cursor-pointer group-hover:gap-4 transition-all duration-300 mt-auto pt-5 border-t border-white/5">
           Especificações Técnicas
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
             <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
